@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { collection, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, memoryEagerGarbageCollector } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db, storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
@@ -23,7 +23,7 @@ export const fetchPostsByUser = createAsyncThunk(
   }
 );
 
-// Async thunk to create posts
+// Async thunk to create a post with file upload
 export const savePost = createAsyncThunk(
   "posts/savePost",
   async ({ userId, postContent, file }) => {
